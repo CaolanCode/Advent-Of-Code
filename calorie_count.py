@@ -2,19 +2,17 @@
 # Read a webpage with numbers
 # The Elves calories are seperated by a blank space
 # Find the Elf carrying the most calories
-from urllib.request import urlopen
-from bs4 import BeautifulSoup
+most_calories = 0 
+current_elf = 0
+calories_file = open("calories.txt", 'r')
 
-url = "https://adventofcode.com/2022/day/1/input"
-html = urlopen(url).read()
-soup = BeautifulSoup(html, features="html.parser")
+for line in calories_file:
+    if line.strip():
+        current_elf += int(line.strip())
+    else:
+        if current_elf > most_calories:
+            most_calories = current_elf
+        current_elf = 0
 
-# Extract all scripts and styles
-for script in soup(["script", "style"]):
-    script.extract()
-
-# get text
-text = soup.get_text()
-
-print(text)
-
+print("The most calories is: " + str(most_calories))
+calories_file.close()
