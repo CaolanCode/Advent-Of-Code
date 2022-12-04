@@ -1,6 +1,5 @@
 # Find the matching item in every three bags
 # return the value of each item
-from itertools import islice
 
 def uppercase(letter):
     value = ord(letter) - 38
