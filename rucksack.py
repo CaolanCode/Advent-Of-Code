@@ -9,7 +9,7 @@
 # ASCII values a - z: 97 - 122
 
 def uppercase(letter):
-    value = ord(letter) - 64
+    value = ord(letter) - 38
     return value
 
 def lowercase(letter):
